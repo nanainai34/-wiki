@@ -1,0 +1,87 @@
+// scripts.js
+
+// コメントフォームのイベントリスナーを設定
+document.getElementById('comment-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // デフォルトのフォーム送信を防止
+
+    // フォームから名前とコメントを取得
+    var name = document.getElementById('name').value;
+    var comment = document.getElementById('comment').value;
+
+    // 新しいコメントのHTMLを作成
+    var newComment = document.createElement('li');
+    newComment.innerHTML = '<strong>' + name + ':</strong> ' + comment;
+
+    // コメントリストに追加
+    var commentsList = document.getElementById('comments-list');
+    commentsList.appendChild(newComment);
+
+    // フォームをリセット
+    document.getElementById('comment-form').reset();
+});
+// scripts.js
+
+// 歴史フォームのイベントリスナーを設定
+document.getElementById('history-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // デフォルトのフォーム送信を防止
+
+    // フォームから名前と内容を取得
+    var name = document.getElementById('history-name').value;
+    var content = document.getElementById('history-content').value;
+
+    // 新しい歴史コンテンツのHTMLを作成
+    var newHistory = document.createElement('div');
+    newHistory.classList.add('history-item');
+    newHistory.innerHTML = '<strong>' + name + ':</strong><br>' + content;
+
+    // 歴史コンテンツに追加
+    var historyContent = document.getElementById('history-content');
+    historyContent.appendChild(newHistory);
+
+    // フォームをリセット
+    document.getElementById('history-form').reset();
+});
+// scripts.js
+
+// 文化フォームのイベントリスナーを設定
+document.getElementById('culture-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // デフォルトのフォーム送信を防止
+
+    // フォームからタイトルと内容を取得
+    var title = document.getElementById('culture-name').value;
+    var content = document.getElementById('culture-content').value;
+
+    // 新しい文化コンテンツのHTMLを作成
+    var newCulture = document.createElement('div');
+    newCulture.classList.add('culture-item');
+    newCulture.innerHTML = '<strong>' + title + '</strong><br>' + content;
+
+    // 文化コンテンツに追加
+    var cultureContent = document.getElementById('culture-content');
+    cultureContent.appendChild(newCulture);
+
+    // フォームをリセット
+    document.getElementById('culture-form').reset();
+});
+// scripts.js
+
+// 写真フォームのイベントリスナーを設定
+document.getElementById('photo-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // デフォルトのフォーム送信を防止
+
+    // フォームからタイトルとファイルを取得
+    var title = document.getElementById('photo-name').value;
+    var file = document.getElementById('photo-file').files[0];
+
+    // 新しい写真アイテムのHTMLを作成
+    var newPhoto = document.createElement('div');
+    newPhoto.classList.add('photo-item');
+    newPhoto.innerHTML = '<strong>' + title + '</strong><br><img src="' + URL.createObjectURL(file) + '" alt="' + title + '">';
+
+    // 写真ギャラリーに追加
+    var photoGallery = document.getElementById('photo-gallery');
+    photoGallery.appendChild(newPhoto);
+
+    // フォームをリセット
+    document.getElementById('photo-form').reset();
+});
